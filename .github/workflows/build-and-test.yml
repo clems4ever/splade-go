@@ -1,0 +1,42 @@
+name: Build and Test
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - master
+    tags:
+      - 'v*'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      -
+        name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+          lfs: true
+      -
+        name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.25'
+      -
+        name: Install ONNX Runtime
+        run: |
+          ORT_VERSION=1.23.0
+          wget https://github.com/microsoft/onnxruntime/releases/download/v${ORT_VERSION}/onnxruntime-linux-x64-${ORT_VERSION}.tgz
+          tar -xzf onnxruntime-linux-x64-${ORT_VERSION}.tgz
+          sudo cp -r onnxruntime-linux-x64-${ORT_VERSION}/include/* /usr/local/include/
+          sudo cp -r onnxruntime-linux-x64-${ORT_VERSION}/lib/* /usr/local/lib/
+      -
+        name: Build
+        run: go build -v ./...
+      -
+        name: Run Tests
+        run: go test -v ./...
+        env:
+          ONNXRUNTIME_LIB_PATH: /usr/local/lib/libonnxruntime.so

@@ -1,5 +1,7 @@
 # SPLADE-Go
 
+[![Build and Test](https://github.com/clems4ever/splade-go/actions/workflows/build-and-test.yml/badge.svg)](https://github.com/clems4ever/splade-go/actions/workflows/build-and-test.yml)
+
 A Go implementation of SPLADE (SParse Lexical AnD Expansion) model for efficient semantic search using sparse representations.
 
 ## Overview

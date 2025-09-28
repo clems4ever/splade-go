@@ -3,11 +3,11 @@ package main
 import (
 	"fmt"
 
-	"github.com/clems4ever/splade-go/splade"
+	"github.com/clems4ever/splade-go/spladego"
 )
 
 func main() {
-	model, err := splade.NewModel()
+	model, err := spladego.NewModel()
 	if err != nil {
 		panic(err)
 	}

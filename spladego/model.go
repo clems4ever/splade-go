@@ -1,4 +1,4 @@
-package splade
+package spladego
 
 import (
 	"bytes"

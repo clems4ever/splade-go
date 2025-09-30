@@ -2,7 +2,7 @@ module github.com/clems4ever/splade-go
 
 go 1.25.1
 
-replace github.com/sugarme/tokenizer => github.com/clems4ever/tokenizer v0.0.0-20250926133620-9ddc80533c43
+replace github.com/sugarme/tokenizer => github.com/clems4ever/tokenizer v0.0.0-20250930155003-25d8ce121691
 
 require (
 	github.com/sugarme/tokenizer v0.3.0

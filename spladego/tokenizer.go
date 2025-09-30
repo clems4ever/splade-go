@@ -27,5 +27,5 @@ func (tk *Tokenizer) Encode(s string, addSpecialTokens bool) (*tokenizer.Encodin
 }
 
 func (tk *Tokenizer) Decode(ids []int, skipSpecialTokens bool) string {
-	return tk.tk.Decode(ids, skipSpecialTokens)
+	return tk.tk.DecodeString(ids, skipSpecialTokens)
 }
